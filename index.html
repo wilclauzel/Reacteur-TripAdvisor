@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/trip-icons.css">
+    <link rel="stylesheet" href="./assets/css/fonts.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="https://kit.fontawesome.com/0da8135391.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./assets/js/main.js"></script>
+    
+    <title>Tourisme à Paris 2020</title>
+</head>
+<body>
+    <div class="modal-signin">
+        <div class="signin">
+            <div><a id="annulate-signin" href=""><i class="icon-times"></i></a></div>
+            <img src="./assets/img/Tripadvisor_lockup_horizontal_registered.svg" alt="logo-TripAdvisor">
+            <p id="signin-title">Bienvenue ; connectez-vous !</p>
+            <form id="login-form" class="form-login-display">
+                <div class="form-input-label">
+                    <label>Adresse e-mail</label>
+                    <input id="login-email" name="" type="email" placeholder="E-mail">
+                </div>
+                <div class="form-input-label">
+                    <label>Mot de passe</label>
+                    <input id="login-password" name="" type="password" placeholder="Mot de passe">    
+                </div>
+                <button id="validate-login" type="submit">Connexion</button>
+                <div class="form-input-label">
+                    <p><a id="swipe-initialize" href="">Mot de passe oublié ?</a></p>
+                </div>
+                <div class="form-input-label">
+                    <p><span>Vous n'avez pas de compte ? </span><a id="swipe-signin" href="">Inscription</a></p>
+                </div>
+            </form>
+            <form id="initialize-form" class="form-initialize-hidden">
+                <div class="form-input-label">
+                    <p><span>Pas de problème ! Il vous suffit d'entrer votre adresse e-mail ci-dessous et nous vous enverrons un lien pour le réinitialiser.</span></p>
+                </div>
+                <div class="form-input-label">
+                    <label>Adresse e-mail</label>
+                    <input id="initialize-email" name="" type="email" placeholder="E-mail">
+                </div>
+                <button id="validate-initialize" type="submit">Envoyer un lien</button>
+            </form>            
+            <form id="signin-form" class="form-signin-hidden">
+                <div class="form-input-label">
+                    <label>Prénom</label>
+                    <input id="firstname" name="" type="text" placeholder="Prénom">
+                </div>
+                <div class="form-input-label">
+                    <label>Nom</label>
+                    <input id="lastname" name="" type="text" placeholder="Nom">
+                </div>
+                <div class="form-input-label">
+                    <label>Adresse e-mail</label>
+                    <input id="signin-email" name="" type="email" placeholder="Adresse mail">
+                </div>
+                <div class="form-input-label">
+                    <label>Créez un mot de passe</label>
+                    <input id="signin-password" name="" type="password" placeholder="Mot de passe">
+                </div>
+                <button id="validate-signin" type="submit">S'incrire</button>
+            </form>
+        </div>
+    </div>
+    <header>
+        <div class="header-normal wrapper">
+            <div>
+                <img src="./assets/img/Tripadvisor_logo.svg" alt="logo-TripAdvisor">
+                <div id="search"><i class="icon-search"></i></div>
+            </div>
+            <nav>
+                <a href=""><i class="icon-plus_c"></i><span class="header-text-display">Publier</span></a>
+                <a href=""><i class="icon-notification_bell"></i><span class="header-text-display">Alertes</span></a>
+                <a href=""><i class="icon-heart"></i><span class="header-text-display">Voyages</span></a>
+                <a id="connected-user" class="connected-user-hidden" href=""><i class="icon-friend"></i><span id="connected-user-text"  class="header-text-display"></span></a>
+                <button id="login-signin">Connectez-vous</button>
+            </nav>
+        </div>
+        <div class="header-light wrapper">
+            <a href=""><i class="icon-menu_bars"></i></a>
+            <img src="./assets/img/Tripadvisor_logo.svg" alt="logo-TripAdvisor">
+            <a href=""><i class="icon-search"></i></a>
+        </div>
+    </header>
+    <main>
+        <div class="wrapper">
+            <h1>
+                <span>Explorez</span> Paris
+            </h1>
+            <nav class="menu">
+                <a href="https://www.tripadvisor.fr/TravelAdvice-g187147-Paris_Ile_de_France.html"></span>Conseils de voyage</span><i class="icon-destination"></i></a>
+                <a href=""><span>Hôtels</span><i class="icon-hotels"></i></a>
+                <a href=""><span>Locations de vacances</span><i class="icon-vacation_rentals"></i></a>
+                <a href=""><span>Activités</span><i class="icon-attractions"></i></a>
+                <a href=""><span>Restaurants</span><i class="icon-restaurants"></i></a>
+                <a href=""><span>Forums de voyage</span><i class="icon-forums"></i></a>
+                <a class="menu-vol-display" href=""><span>Vols</span><i class="icon-flights"></i></a>
+                <a href=""><span>Plus</span><i class="icon-more_horizontal"></i></a>
+            </nav>
+            <div class="pictures">
+                <div>
+                    <img src="./assets/img/Photo1.jpg" alt="photo1">
+                </div>
+                <div>
+                    <img src="./assets/img/photo2.jpg" alt="photo2"><img src="./assets/img/photo3.jpg" alt="photo3">
+                </div>
+            </div>
+            <div id="legend">
+                <nav>
+                    <a href=""><span>Europe</span> ></a>
+                    <a href=""><span>France</span> ></a>
+                    <a href=""><span>Île-de-France</span> ></a>
+                    <a href=""><span>Paris</span> ▾</a>
+                </nav>
+                <p>Visiter : Paris</p>
+            </div>
+            <div class="summary">
+                <div>
+                    <h2>La Ville Lumière éblouit en tous points</h2>
+                    <p>Aucun autre endroit au monde ne fait autant rêver que Paris. La ville séduit par son art, son architecture, sa culture et sa cuisine, mais il y a aussi des merveilles plus discrètes qui n’attendent qu’à être explorées : les ruelles pavées pittoresques, les pâtisseries au coin de la rue et les petits bistrots douillets qui vous invitent à boire un verre de beaujolais. Préparez-vous à vous approprier Paris.</p>
+                </div>
+                <div class="summary-part2">
+                    <div>
+                        <h3>Commencez à organiser Paris</h3>
+                        <p>Créez un voyage pour enregistrer et organiser toutes vos idées et les visualiser sur une carte.
+                        </p>
+                        <button>Créez un voyage</button>
+                    </div>
+                    <div>
+                        <img src="https://static.tacdn.com/img2/brand/trips/image_trips_card_medium.png" alt="trips card">
+                    </div>
+                </div>
+            </div>
+            <section id="tips">
+                <div>
+                    <div class="separator"></div>
+                    <h2>Conseils de voyage</h2>
+                    <div class="separator"></div>
+                </div>
+                <p class="hover-text"><a href="">Tout afficher</a></p>
+                <div class="tips-menu">
+                    <a href=""><img src="./assets/img/fact_sheet_best_time_to_visit.svg" alt=""/><span>Meilleure période pour visiter</span></a>
+                    <a href=""><img src="./assets/img/fact_sheet_getting_around.svg" alt=""/><span>Se déplacer</span></a>
+                    <a href=""><img src="./assets/img/fact_sheet_local_customs.svg" alt=""/><span>Coutumes locales</span></a>
+                    <a href=""><img src="./assets/img/fact_sheet_tips.svg" alt=""/><span>Conseils de pros</span></a>
+                </div>
+            </section>
+            <section id="unmissable">
+                <div>
+                    <div class="separator"></div>
+                    <h2>Immanquable à Paris</h2>
+                    <div class="separator"></div>
+                </div>
+                <div>
+                    <div>
+                        <h3>Se divertir</h3>
+                        <p>Des lieux à voir, des rues à explorer et des expériences emblématiques à Paris.</p>
+                        <p class="hover-text"><a href="">Tout afficher</a></p>
+                    </div>
+                    <div>
+                        <div>
+                            <div class="favorite"></div>
+                            <img src="./assets/img/20180601-122841-largejpg.jpg" alt="">
+                            <h4>
+                                Musée d'Orsay
+                            </h4>
+                            <p>
+                                Musées d'art
+                            </p>
+                        </div>
+                        <div>
+                            <div class="favorite"></div>
+                            <img src="./assets/img/arc-de-triomphe-at-night.jpg" alt="">
+                            <h4>
+                                Arc de triomphe
+                            </h4>
+                            <p>
+                                Bâtiments architeturaux, Sites historiques
+                            </p>
+                        </div>
+                        <div>
+                            <div class="favorite"></div>
+                            <img src="./assets/img/basilica-del-sagrado.jpg" alt="">
+                            <h4>
+                                Basilique du Sacré-Couer de Montmartre
+                            </h4>
+                            <p>
+                                Églises et cathédrales
+                            </p>
+                        </div>
+                        <div>
+                            <div class="favorite"></div>
+                            <img src="./assets/img/eiffeltoren.jpg" alt="">
+                            <h4>
+                                Tour Eiffel
+                            </h4>
+                            <p>
+                                
+                            </p>
+                        </div>
+                        <div>
+                            <div class="favorite"></div>
+                            <img src="./assets/img/marche-vernaison-maison.jpg" alt="">
+                            <h4>
+                                Marché aux Puces de Saint Ouen
+                            </h4>
+                            <p>
+                                Antiquaires, Marchés aux puces & Marchés de rue
+                            </p>
+                        </div>
+                        <div>
+                            <div class="favorite"></div>
+                            <img src="./assets/img/pyarmide-louvre.jpg" alt="">
+                            <h4>
+                                Musée du Louvre
+                            </h4>
+                            <p>
+                                Bâtiments architeturaux, Musées d'art
+                            </p>
+                        </div>
+                        <div>
+                            <div class="favorite"></div>
+                            <img src="./assets/img/the-amazingly-detailed.jpg" alt="">
+                            <h4>
+                                Cathédrale Notre-Dame de Paris
+                            </h4>
+                            <p>
+                                Bâtiments architeturaux, Sites historiques
+                            </p>
+                        </div>
+                        <div>
+                            <div class="favorite"></div>
+                            <img src="./assets/img/the-bookstore.jpg" alt="">
+                            <h4>
+                                Librairie Shakespeare and Company
+                            </h4>
+                            <p>
+                                Bibliothèques, Grands magasins
+                            </p>
+                        </div>
+                        <div>
+                            <div class="favorite"></div>
+                            <img src="./assets/img/vue-de-la-cour-d-honneur.jpg" alt="">
+                            <h4>
+                                Musée Rodin
+                            </h4>
+                            <p>
+                                Musées spécialisées
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <div class="wrapper">
+           <img src="./assets/img/Tripadvisor_logoset_solid_green.svg" alt=""> 
+           <div>
+            <span>
+                Made at 
+               </span>
+               <a href="https://www.lereacteur.io/">Le Reacteur </a>
+               <span>
+                 by William Clauzel - 2020
+               </span>
+           </div>
+        </div>
+    </footer>
+</body>
+</html>
