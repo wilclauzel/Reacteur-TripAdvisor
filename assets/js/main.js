@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Page chargée");
   const $ = document;
+  const URL = "https://reacteur-vinted.herokuapp.com";
+  // const URL = "http://localhost:3000";
 
   /* Launch Authentication */
   $.querySelector("#login-signin").addEventListener("click", (event) => {
@@ -72,10 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
       password: $.querySelector("#login-password").value,
     };
     try {
-      const response = await axios.post(
-        "http://localhost:3000/user/login",
-        data
-      );
+      const response = await axios.post(`${URL}/user/login`, data);
       if (
         response &&
         response.status >= 200 &&
@@ -125,10 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     try {
-      const response = await axios.post(
-        "http://localhost:3000/user/signup",
-        data
-      );
+      const response = await axios.post(`${URL}/user/signup`, data);
       if (
         response &&
         response.status >= 200 &&
@@ -176,10 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     try {
-      const response = await axios.post(
-        "http://localhost:3000/user/initialize",
-        data
-      );
+      const response = await axios.post(`${URL}/user/initialize`, data);
       if (response && response.status >= 200 && response.status < 300) {
         alert(
           "Votre mot de passe a été réinitialisé. Veuillez consulter votre messagerie pour le changer."
